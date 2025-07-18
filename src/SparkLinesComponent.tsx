@@ -16,7 +16,7 @@ export const SparkLinesComponent: React.FC<{
     const [usedValues, setUsedValues] = useState<IValues>()
     const sparkLines = useRef<SparkLineTypes | null>(null)
 
-    function getType() {
+    const getType = useCallback((): SparkLineTypes => {
         switch (type) {
             case 'SparkLineColumnChart':
                 return new SparkLineColumnChart({
@@ -24,7 +24,7 @@ export const SparkLinesComponent: React.FC<{
                     width: settings.width ?? 100,
                     height: settings.height ?? 50,
                     color: settings.bars?.fill?.color ?? '#5fadf5'
-                },values)
+                }, values)
             case 'SparkLineWinLoss':
                 return new SparkLineWinLoss({
                     ...settings,
@@ -46,7 +46,7 @@ export const SparkLinesComponent: React.FC<{
             default:
                 return sparkLines.current = new SparkLines()
         }
-    }
+    }, [settings, type, values])
 
 
     const renderSparkLines = useCallback(
