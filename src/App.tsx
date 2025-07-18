@@ -14,11 +14,11 @@ function App() {
                             width: 100,
                             height: 50,
                             line: {
-                                fill: {
+                                stroke: {
                                     color: 'gray'// any valid css color name or hex/rgb(a) code
                                 }
                             }
-                        }}/>
+                        }} type="SparkLineGraph" />
                     </div>
                     <h3>Column chart</h3>
                     <div style={{ width: 100, background: "#fff", padding: "5px" }}>
@@ -51,7 +51,7 @@ function App() {
                             width: 180,
                             height: 60,
                             line: {
-                                fill: {
+                                stroke: {
                                     color: '#333'// any valid css color name or hex/rgb(a) code
                                 },
                                 strokeWidth: 1.67, // optional
@@ -62,7 +62,7 @@ function App() {
                                     size: 5
                                 }
                             }
-                        }} type={'SparkLineGraph'}/>
+                        }} type={'SparkLineGraphDots'}/>
                     </div>
                 </article>
                 <article>

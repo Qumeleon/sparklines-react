@@ -39,6 +39,15 @@ export const SparkLinesComponent: React.FC<{
                     width: settings.width ?? 180,
                     height: settings.height ?? 60,
                     lineWidth: settings.line?.strokeWidth,
+                    color: settings.line?.stroke?.color ?? 'gray'
+                }, values)
+            case 'SparkLineGraphDots':
+                return new SparkLineGraph({
+                    ...settings,
+                    width: settings.width ?? 180,
+                    height: settings.height ?? 60,
+                    lineWidth: settings.line?.strokeWidth,
+                    color: settings.line?.stroke?.color ?? 'gray',
                     markers: {
                         color: settings.line?.dots?.fill?.color ?? 'blue'
                     }
