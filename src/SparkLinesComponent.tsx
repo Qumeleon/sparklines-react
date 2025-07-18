@@ -1,17 +1,53 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-import { SparkLines } from '@qumeleon/sparklines'
+import {SparkLineColumnChart, SparkLineGraph, SparkLines, SparkLineWinLoss} from '@qumeleon/sparklines'
 import type { IValues } from "@qumeleon/sparklines";
 import type { ISparkLinesProps } from "@qumeleon/sparklines";
+
+type SparkLineTypes = SparkLines | SparkLineColumnChart | SparkLineWinLoss | SparkLineGraph;
 
 export const SparkLinesComponent: React.FC<{
     values: IValues
     settings: ISparkLinesProps
-}> = ({ values, settings }) => {
+    type?: string
+}> = ({ values, settings, type }) => {
     const containerEl = React.createRef<HTMLDivElement>()
     const [usedSettings, setUsedSettings] = useState<ISparkLinesProps>()
     const [usedValues, setUsedValues] = useState<IValues>()
-    const sparkLines = useRef<SparkLines>(null)
+    const sparkLines = useRef<SparkLineTypes | null>(null)
+
+    function getType() {
+        switch (type) {
+            case 'SparkLineColumnChart':
+                return new SparkLineColumnChart({
+                    ...settings,
+                    width: settings.width ?? 100,
+                    height: settings.height ?? 50,
+                    color: settings.bars?.fill?.color ?? '#5fadf5'
+                },values)
+            case 'SparkLineWinLoss':
+                return new SparkLineWinLoss({
+                    ...settings,
+                    width: settings.width ?? 160,
+                    height: settings.height ?? 40,
+                    colorWin: settings.bars?.fill?.colorForPositiveValues ?? 'green',
+                    colorLoss: settings.bars?.fill?.colorForNegativeValues ?? 'red'
+                }, values)
+            case 'SparkLineGraph':
+                return new SparkLineGraph({
+                    ...settings,
+                    width: settings.width ?? 180,
+                    height: settings.height ?? 60,
+                    lineWidth: settings.line?.strokeWidth,
+                    markers: {
+                        color: settings.line?.dots?.fill?.color ?? 'blue'
+                    }
+                }, values)
+            default:
+                return sparkLines.current = new SparkLines()
+        }
+    }
+
 
     const renderSparkLines = useCallback(
         (forceRerender: boolean) => {
@@ -22,18 +58,22 @@ export const SparkLinesComponent: React.FC<{
                 if (forceRerender) {
                     containerEl.current.innerHTML = ''
                 }
-                sparkLines.current = new SparkLines()
-                sparkLines.current.setSettings(settings)
-                sparkLines.current.setValues(values)
+                sparkLines.current = getType()
+                if (sparkLines.current instanceof SparkLines) {
+                    sparkLines.current.setSettings(settings)
+                    sparkLines.current.setValues(values)
+                }
                 const sparkLinesEl = sparkLines.current.render()
                 containerEl.current.appendChild(sparkLinesEl)
             } else {
                 // just trigger a rerender of the existing sparkline, it will rerender sparkLinesEl
-                sparkLines.current.setSettings(settings)
-                sparkLines.current.setValues(values)
+                if (sparkLines.current instanceof SparkLines) {
+                    sparkLines.current.setSettings(settings)
+                    sparkLines.current.setValues(values)
+                }
             }
         },
-        [containerEl, settings, values]
+        [containerEl, getType, settings, values]
     )
 
     // only (re)render when settings or values changed
