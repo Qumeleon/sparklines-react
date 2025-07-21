@@ -12,7 +12,7 @@ npm install @qumeleon/sparklines-react
 
 ![](./Examples/example_sparkline_graph.png)
 
-````react
+````javascript
 // your values (data)
 const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
 
@@ -44,7 +44,7 @@ const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
 
 ![](./Examples/example_sparkline_column_chart.png)
 
-```react
+```javascript
 // your values (data)
 const values = [8, 23, 9, -4, 7, 21, 4, 12]
 
@@ -75,7 +75,7 @@ const values = [8, 23, 9, -4, 7, 21, 4, 12]
 
 ![](./Examples/example_sparkline_win_loss.png)
 
-````react
+````javascript
 // your values (data)
 const values = [18, -3, 9, -4, 7, -21, 4, 12]
 
@@ -107,7 +107,7 @@ const values = [18, -3, 9, -4, 7, -21, 4, 12]
 
 ![](./Examples/example_sparkline_graph-with-dots.png)
 
-````react
+````javascript
 // your values (data)
 const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
 
