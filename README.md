@@ -13,12 +13,9 @@ npm install @qumeleon/sparklines-react
 ![](./Examples/example_sparkline_graph.png)
 
 ````javascript
-// your values (data)
-const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
-
 <SparkLinesComponent
   // set the values to be used in the sparkline
-  values={values}
+  values={[1, 3, 9, -4, 7, 2, 12, 0, 1]}
   // set the settings used for SparkLineGraph, this is customizable
   settings={{
     width: 100,
@@ -39,12 +36,9 @@ const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
 ![](./Examples/example_sparkline_column_chart.png)
 
 ```javascript
-// your values (data)
-const values = [8, 23, 9, -4, 7, 21, 4, 12]
-
   <SparkLinesComponent
     // set the values to be used in the sparkline
-    values={values}
+    values={[8, 23, 9, -4, 7, 21, 4, 12]}
     // set the settings used for SparkLineColumnChart, this is customizable
     settings={{
       width: 100,
@@ -64,12 +58,9 @@ const values = [8, 23, 9, -4, 7, 21, 4, 12]
 ![](./Examples/example_sparkline_win_loss.png)
 
 ````javascript
-// your values (data)
-const values = [18, -3, 9, -4, 7, -21, 4, 12]
-
   <SparkLinesComponent
     // set the values to be used in the sparkline
-    values={values}
+    values={[18, -3, 9, -4, 7, -21, 4, 12]}
     // set the settings used for SparkLineWinLoss, this is customizable
     settings={{
       width: 160,
@@ -90,12 +81,9 @@ const values = [18, -3, 9, -4, 7, -21, 4, 12]
 ![](./Examples/example_sparkline_graph-with-dots.png)
 
 ````javascript
-// your values (data)
-const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
-
   <SparkLinesComponent
     // set the values to be used in the sparkline
-    values={values}
+    values={[1, 3, 9, -4, 7, 2, 12, 0, 1]}
     // set the settings used for SparkLineGraphDots, this is customizable
     settings={{
       width: 180,
