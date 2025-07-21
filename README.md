@@ -16,10 +16,6 @@ npm install @qumeleon/sparklines-react
 // your values (data)
 const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
 
-// create an element on your page which will contain the sparkline
-<div style={{ width: 100, background: "#fff", padding: "5px" }}>
-
-// render the sparkline inside the element
 <SparkLinesComponent
   // set the values to be used in the sparkline
   values={values}
@@ -36,8 +32,6 @@ const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
     // set the sparkline type
     type="SparkLineGraph"
   />
-
-</div>
 ````
 
 ### Column chart
@@ -48,10 +42,6 @@ const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
 // your values (data)
 const values = [8, 23, 9, -4, 7, 21, 4, 12]
 
-// create an element on your page which will contain the sparkline
-<div style={{ width: 100, background: "#fff", padding: "5px" }}>
-
-  // render the sparkline inside the element
   <SparkLinesComponent
     // set the values to be used in the sparkline
     values={values}
@@ -67,8 +57,6 @@ const values = [8, 23, 9, -4, 7, 21, 4, 12]
     // set the sparkline type
     type="SparkLineColumnChart"
   />
-
-</div>
 ```
 
 ### Win / Loss
@@ -79,10 +67,6 @@ const values = [8, 23, 9, -4, 7, 21, 4, 12]
 // your values (data)
 const values = [18, -3, 9, -4, 7, -21, 4, 12]
 
-// create an element on your page which will contain the sparkline
-<div style={{ width: 100, background: "#fff", padding: "5px" }}>
-
-  // render the sparkline inside the element
   <SparkLinesComponent
     // set the values to be used in the sparkline
     values={values}
@@ -99,8 +83,6 @@ const values = [18, -3, 9, -4, 7, -21, 4, 12]
     // set the sparkline type
     type="SparkLineWinLoss"
   />
-
-</div>
 ````
 
 ### Line graph with markers (dots)
@@ -111,10 +93,6 @@ const values = [18, -3, 9, -4, 7, -21, 4, 12]
 // your values (data)
 const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
 
-// create an element on your page which will contain the sparkline
-<div style={{ width: 100, background: "#fff", padding: "5px" }}>
-
-  // render the sparkline inside the element
   <SparkLinesComponent
     // set the values to be used in the sparkline
     values={values}
@@ -136,6 +114,4 @@ const values = [1, 3, 9, -4, 7, 2, 12, 0, 1]
     // set the sparkline type
     type="SparkLineGraphDots"
   />
-
-</div>
 ````
