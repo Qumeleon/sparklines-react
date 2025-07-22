@@ -1,5 +1,6 @@
 import React from "react";
 import {SparkLinesComponent} from "./index";
+import './style.css'
 
 function App() {
     return (
