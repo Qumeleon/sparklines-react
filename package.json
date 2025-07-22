@@ -8,6 +8,11 @@
   "description": "A reusable sparklines component for react",
   "author": "Qumeleon",
   "license": "MIT",
+  "homepage": "https://github.com/Qumeleon/sparklines-react#README",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Qumeleon/sparklines-react"
+  },
   "scripts": {
     "dev": "vite",
     "start": "vite",
